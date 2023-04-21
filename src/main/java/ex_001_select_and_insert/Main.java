@@ -2,13 +2,12 @@ package ex_001_select_and_insert;
 
 
 import ex_001_select_and_insert.entity.Author;
+import ex_001_select_and_insert.entity.Book;
 import org.jboss.logging.Logger;
 
 import java.util.List;
 
-/**
- * Created by Asus on 01.11.2017.
- */
+
 public class Main {
 
     private static final Logger LOG = Logger.getLogger(AuthorHelper.class.getName());
@@ -16,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         AuthorHelper authorHelper = new AuthorHelper();
+        BookHelper bookHelper = new BookHelper();
 
 
         Author[] authors = {
@@ -24,11 +24,10 @@ public class Main {
                 new Author("Herman Melville")
         };
 
-        // Case 1. Insert authors into DB
-        for (Author author : authors) {
-            authorHelper.addAuthor(author);
-        }
-
+//        // Case 1. Insert authors into DB
+//        for (Author author : authors) {
+//            authorHelper.addAuthor(author);
+//        }
 
 
         // Case 2.1 Get all authors
@@ -47,6 +46,31 @@ public class Main {
 //        System.out.println(author);
 //        LOG.debug(author.getName());
 
+        Book[] books = {
+                new Book("Cheburashka adventures", 2),
+                new Book("Chipolino trip", 5),
+                new Book("Karlson - mission impossible", 1)
+        };
+
+//        add book/books
+//        for (Book book : books) {
+//            bookHelper.addBook(book);
+//        }
+// get list of all books
+//        List<Book> bookList = bookHelper.getBookList();
+//
+//        for (Book book : bookList) {
+//            LOG.debug(book.getId() + " " + book.getName() + " " + book.getAuthor_id());
+//            System.out.println(book);
+//            LOG.debug(book);
+//        }
+// get book by id
+//       Book book = bookHelper.getBookById(2);
+//       System.out.println(book);
+//       LOG.debug(book.getName());
+
+
     }
+
 
 }

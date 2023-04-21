@@ -30,35 +30,35 @@ public class BookHelper {
     }
 
     public List<Book> getBookList() {
-        // открыть сессию - для манипуляции с персист. объектами
+
         Session session = sessionFactory.openSession();
 
-        // этап подготовки запроса
 
-        // объект-конструктор запросов для Criteria API
+
+
         CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
 
-        CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Author.class);
+        CriteriaQuery criteriaQuery = criteriaBuilder.createQuery(Book.class);
 
-        Root<Author> root = criteriaQuery.from(Author.class);// первостепенный, корневой entity (в sql запросе - from)
+        Root<Book> root = criteriaQuery.from(Book.class);
 
-        criteriaQuery.select(root);// необязательный оператор, если просто нужно получить все значения
+        criteriaQuery.select(root);
 
         //этап выполнения запроса
         Query query = session.createQuery(criteriaQuery);
 
-        List<Author> authorList = query.getResultList();
+        List<Book> bookList = query.getResultList();
 
         session.close();
 
-        return authorList;
+        return bookList;
     }
 
-    public Author getAuthorById(long id) {
+    public Book getBookById(long id) {
         Session session = sessionFactory.openSession();
-        Author author = session.get(Author.class, id); // получение объекта по id
+        Book book = session.get(Book.class, id); // получение объекта по id
         session.close();
-        return author;
+        return book;
     }
 
 }
